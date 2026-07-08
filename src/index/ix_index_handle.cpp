@@ -120,6 +120,8 @@ IxIndexHandle::IxIndexHandle(DiskManager *disk_manager, BufferPoolManager *buffe
 
 std::pair<IxNodeHandle *, bool> IxIndexHandle::find_leaf_page(const char *key, Operation operation,
                                                             Transaction *transaction, bool find_first) {
+    if (file_hdr_->root_page_ == IX_NO_PAGE || file_hdr_->num_pages_ <= 0)
+        return {nullptr, false};
     page_id_t cur_page_no = file_hdr_->root_page_;
     IxNodeHandle *node = fetch_node(cur_page_no);
     IxNodeHandle *leaf = nullptr;
