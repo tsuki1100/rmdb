@@ -216,6 +216,7 @@ void BufferPoolManager::delete_all_pages(int fd) {
             frame_id_t frame_id = it->second;
             Page* page = &pages_[frame_id];
             page->reset_memory();
+            page->id_.fd = -1;
             page->id_.page_no = INVALID_PAGE_ID;
             page->is_dirty_ = false;
             free_list_.push_back(frame_id);
