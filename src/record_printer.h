@@ -21,7 +21,7 @@ See the Mulan PSL v2 for more details. */
 #define RECORD_COUNT_LENGTH 40
 
 class RecordPrinter {
-    static constexpr size_t COL_WIDTH = 20;
+    static constexpr size_t COL_WIDTH = 16;
     size_t num_cols;
 public:
     RecordPrinter(size_t num_cols_) : num_cols(num_cols_) {

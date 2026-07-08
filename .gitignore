@@ -20,6 +20,9 @@ Thumbs.db
 *.obj
 *.exe
 
+# Archives
+*.zip
+
 # CMake
 CMakeCache.txt
 CMakeFiles/
