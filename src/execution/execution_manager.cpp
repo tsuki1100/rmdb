@@ -144,7 +144,7 @@ void QlManager::select_from(std::unique_ptr<AbstractExecutor> executorTreeRoot, 
     // Build column widths from executor column types
     std::vector<size_t> col_widths;
     for (auto &col : executorTreeRoot->cols()) {
-        col_widths.push_back(col.type == TYPE_BIGINT ? (size_t)20 : (size_t)16);
+        col_widths.push_back((col.type == TYPE_BIGINT || col.type == TYPE_DATETIME) ? (size_t)20 : (size_t)16);
     }
     // Print header into buffer
     RecordPrinter rec_printer(sel_cols.size(), col_widths);
