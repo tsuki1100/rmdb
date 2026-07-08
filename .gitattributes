@@ -1,0 +1,15 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# C++ sources
+*.cpp text
+*.h text
+*.c text
+*.y text
+*.l text
+*.txt text
+
+# Binary files
+*.jpg binary
+*.png binary
+*.pdf binary

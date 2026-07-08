@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "name": "Linux-GCC-Debug",
+      "generator": "Unix Makefiles",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}/build",
+      "cmakeCommandArgs": "-DCMAKE_BUILD_TYPE=Debug",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "intelliSenseMode": "linux-gcc-x64"
+    },
+    {
+      "name": "Linux-GCC-Release",
+      "generator": "Unix Makefiles",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}/build",
+      "cmakeCommandArgs": "-DCMAKE_BUILD_TYPE=Release",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ]
+}
