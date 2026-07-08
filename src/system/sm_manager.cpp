@@ -10,7 +10,7 @@ See the Mulan PSL v2 for more details. */
 
 #include "sm_manager.h"
 
-#include <filesystem>
+#include <experimental/filesystem>
 #include <fstream>
 #include <iostream>
 
@@ -23,7 +23,7 @@ using namespace std;
 
 bool SmManager::is_dir(const string &db_name) {
     std::error_code ec;
-    return filesystem::is_directory(db_name, ec);
+    return std::experimental::filesystem::is_directory(db_name, ec);
 }
 
 void SmManager::create_db(const string &db_name) {
