@@ -416,6 +416,7 @@ IxNodeHandle *IxIndexHandle::create_node() {
     file_hdr_->num_pages_++;
     PageId new_page_id = {.fd = fd_, .page_no = INVALID_PAGE_ID};
     Page *page = buffer_pool_manager_->new_page(&new_page_id);
+    memset(page->get_data(), 0, PAGE_SIZE);  // clear stale data from reused BPM frames
     IxNodeHandle *node = new IxNodeHandle(file_hdr_, page);
     return node;
 }

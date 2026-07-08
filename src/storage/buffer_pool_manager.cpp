@@ -215,7 +215,11 @@ void BufferPoolManager::delete_all_pages(int fd) {
         if (it->first.fd == fd) {
             frame_id_t frame_id = it->second;
             Page* page = &pages_[frame_id];
+            if (page->pin_count_ > 0) {
+                ++it; continue;  // page in use, don't delete
+            }
             page->reset_memory();
+            memset(page->get_data(), 0, PAGE_SIZE);
             page->id_.fd = -1;
             page->id_.page_no = INVALID_PAGE_ID;
             page->is_dirty_ = false;
