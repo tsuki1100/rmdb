@@ -21,9 +21,9 @@ add_executable(rmdb rmdb.cpp)
 if(WIN32)
 target_link_libraries(rmdb parser execution ws2_32 pthread planner analyze)
 else()
-target_link_libraries(rmdb parser execution pthread planner analyze)
+target_link_libraries(rmdb parser execution pthread planner analyze stdc++fs)
 endif()
 
 # unit_test
 add_executable(unit_test unit_test.cpp)
-target_link_libraries(unit_test storage lru_replacer record gtest_main)  # add gtest
+target_link_libraries(unit_test storage lru_replacer record gtest_main stdc++fs)  # add gtest
